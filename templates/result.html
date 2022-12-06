@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body id="body-result"
+	style="text-align:center; background-color:Gray;background-size: cover;background-repeat: no-repeat"
+	onload="changeImage()" >
+	<header class="transparent">
+		<div class="container">
+			<h2 class="text-dark mt-5 font-weight-bold text w3-animate-top" style="text-align:center; font-size:3rem">
+				Sentiment
+				Analysis
+			</h2>
+		</div>
+	</header>
+	<div class="text-left p-0 container pt-5 w3-animate-left">
+		<p style="font-size:30px;" class="text">
+			<b>Sentiment of entered message is</b>
+		</p>
+
+		<h2 class="text-body text-black font-italic w3-animate-zoom" id="predict-results" style="font-size: 50px;">{{prediction}}</h2>
+	</div>
+</body>
+<script>
+    var result = document.getElementById("predict-results").innerHTML;
+
+    function changeImage() {
+		if (result == "['positive']") {
+			document.getElementById("body-result").style.backgroundImage = "url(../static/positive.jpeg)";
+
+		}
+		else if (result == "['negative']") {
+			document.getElementById("body-result").style.backgroundImage = "url(../static/negative.jpeg)";
+
+		}
+		else {
+			document.getElementById("body-result").style.backgroundImage = "url(../static/neutral.jpeg)";
+		}
+	}</script>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>NLP Classifier</title>
+	<link rel="stylesheet" type="text/css" href="../static/style.css" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);">
+	<div>
+		<div class="jumbotron pt-1">
+			<div class="w3-animate-opacity" style="padding: 0.1%; display: flex;">
+				<img id="logo" src="../static/logo.png" alt="Logo" width="150px" height="150px">
+				<h1 class="m-auto"> INDUSTRIAL UNIVERSITY OF HO CHI MINH CITY</h1>
+			</div>
+			<h1 class="text-center font-weight-bold mt-5 heading" style="font-size:50px">Sentiment Analysis for
+				Vietnamese with CNN + LSTM</h1>
+			<!-- end box tên trường, tên đề tài -->
+
+
+		</div>
+		<!-- <div class="big-short w3-animate-bottom " style="display:flex;">
+			<div class="big-high-left w3-animate-left">
+				<h4 class="font-weight-bold">DO THIS DO THAT TEAMS</h4>
+				<h4 class="text-left pl-4">MEMBERS</h4>
+				<h3 style="text-align:left;" class="list-inline">
+					<ol class="text-decoration-none w3-animate-opacity">
+						<li><a href="https://www.facebook.com/chitrung8821">Phan Chí Trung</a></li>
+						<li><a href="https://www.facebook.com/profile.php?id=100043055432196">Trịnh Ngọc Đức</a></li>
+						<li><a href="https://www.facebook.com/TTCL140101">Trương Thị Cẩm Ly</a></li>
+						<li><a href="https://www.facebook.com/son.phamtrung.9216">Phạm Trung Sơn</a></li>
+						<li><a href="https://www.facebook.com/ll.thanhphong.2709">Lê Thanh Phong</a></li>
+					</ol>
+				</h3>
+			</div> -->
+		<div class="big-short-center" ; style="border-radius: 15px;
+                        width: 100%;
+                        height: 100%;
+                        float: left;
+                        text-align: center;
+                        background: #E6E2C8;
+                        padding-bottom: 30px;">
+			<form action="{{ url_for('predict')}}" method="POST">
+				<p style="color:Black; font-size:30px">
+					Enter Your Message Here</p>
+				<!-- <input type="text" name="comment"/> -->
+				<textarea name="message" rows="4" cols="50" class="input-group-text m-auto"></textarea>
+				<br />
+				<input type="submit" class="btn-success m-3 border-0 px-3" style="width:250px; font-size:30px"
+					value="Predict">
+			</form>
+
+		</div>
+	</div>
+	</div>
+	<h2 class="ml-5 sub-heading">Credit</h2>
+	<h1 CLASS="ml-5 heading font-weight-bold">DO THIS DO THAT TEAM</h1>
+	<div class="container-fluid" style="display: flex;">
+
+		<div class="member m-5">
+			<img src="https://scontent.fvca1-3.fna.fbcdn.net/v/t1.6435-1/s320x320/83560506_861613910976309_3860195822574501888_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=7206a8&_nc_ohc=w4yx55dSdpAAX9UfysZ&_nc_ht=scontent.fvca1-3.fna&oh=40763360f558239b086871e8cb964247&oe=61D26AE1"
+				alt="" srcset="">
+			<a href="https://www.facebook.com/chitrung8821">Phan Chí Trung</a>
+		</div>
+		<div class="member m-5">
+
+			<img src="https://scontent.fsgn13-1.fna.fbcdn.net/v/t39.30808-1/p320x320/240961893_571274044317772_320243032305200543_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_ohc=v2ytus_yQHUAX9jXGpL&_nc_ht=scontent.fsgn13-1.fna&oh=89cf2a5f1919502c38b8be9b2417f868&oe=61B13AEC"
+				alt="" srcset="">
+			<a href="https://www.facebook.com/profile.php?id=100043055432196">Trịnh Ngọc Đức</a>
+		</div>
+		<div class="member m-5">
+			<img src="https://scontent.fsgn4-1.fna.fbcdn.net/v/t1.6435-1/c0.0.320.320a/p320x320/152461791_1116632448775885_5142926094961309016_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=7206a8&_nc_ohc=KanuAL_lECwAX8H93NS&_nc_ht=scontent.fsgn4-1.fna&oh=bca378ceb4012d157a64860656758569&oe=61D1022E"
+				alt="" srcset="">
+			<a href="https://www.facebook.com/TTCL140101">Trương Thị Cẩm Ly</a>
+		</div>
+		<div class="member m-5">
+
+			<img src="https://scontent.fsgn13-2.fna.fbcdn.net/v/t1.6435-1/s320x320/134093883_740127796907037_9207961849457612920_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=7206a8&_nc_ohc=HKsk8rcZ7x8AX9rbcVE&_nc_ht=scontent.fsgn13-2.fna&oh=83b5358d511b8539c7c8ec25c60ac33e&oe=61D19485"
+				alt="" srcset="">
+			<a href="https://www.facebook.com/son.phamtrung.9216">Phạm Trung Sơn</a>
+		</div>
+		<div class="member m-5">
+			<img src="https://scontent.fvca1-3.fna.fbcdn.net/v/t1.6435-1/p320x320/176734274_1023851254687550_5059750750427532314_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=7206a8&_nc_ohc=BRTjmF_yUdgAX-v2BBR&_nc_ht=scontent.fvca1-3.fna&oh=72f8e1003b5cc393094e07025753956a&oe=61CF7511"
+				alt="" srcset="">
+			<a href="https://www.facebook.com/ll.thanhphong.2709">Lê Thanh Phong</a>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
